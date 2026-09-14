@@ -1,0 +1,10 @@
+{
+  "name": "visa-casework",
+  "version": "0.1.0",
+  "description": "Draft and file one congressional casework request about U.S. nonimmigrant visa appointment unavailability.",
+  "author": {
+    "name": "anonymsome"
+  },
+  "license": "CC-BY-NC-4.0",
+  "keywords": ["visa", "casework", "congressional", "immigration", "nonimmigrant"]
+}

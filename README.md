@@ -6,7 +6,9 @@ If you hold a nonimmigrant status (H-1B, L-1, F-1, O-1, TN, J-1, and others) and
 
 This plugin walks you through it: find your district, pick the right office, assemble the facts, draft the request in the framing caseworkers actually respond to, fill the form, call the district office, and track the follow-up.
 
-**Status: early. Nothing below is built yet — this README is the spec.**
+**Status: early.** The skill, templates, and references are drafted. The
+process claims in `references/` are largely unverified against current State
+Department and House sources — see Contributing.
 
 ## What it can't do
 
@@ -17,12 +19,52 @@ Read this part before anything else.
 - **It won't submit anything for you.** The browser step stops at a filled form. You read it, you fix it, you click submit. Congressional casework forms require a signed Privacy Act authorization — that's your signature, not an agent's.
 - **It won't invent hardship.** Every fact in the draft comes from you. If you haven't been separated from family for two years, the draft won't say you have. Caseworkers read a lot of these and a fabricated one burns your credibility and everyone else's.
 
+## Will this put my status at risk?
+
+The most common reason people in this situation don't contact anyone isn't
+that they haven't heard of casework. It's the fear that asking makes them a
+target — or, quieter and more common, a sense that they have no standing to
+ask at all.
+
+**You are a constituent.** Congressional offices serve the people who live in
+the district. Voting has nothing to do with it, and immigration casework is
+one of the largest categories of work these offices do. Your request would
+not be unusual.
+
+**An inquiry is a question, not a referral.** The office asks the State
+Department's congressional liaison what's happening with your case. It has no
+enforcement role and no authority to adjudicate anything. It can't make a
+decision go against you any more than it can make one go for you.
+
+**The default answer is that filing is fine.** For most people in this
+situation there's nothing unusual in the record at all, and the plugin says
+so specifically rather than leaving you to wonder.
+
+It runs an actual check before you file, against a concrete list — time out
+of status, unauthorized work, a prior refusal or unresolved 221(g), removal
+proceedings, a criminal charge, status expiring soon, a dispute over your
+employer's filings, an unsatisfied J-1 home-residency requirement — and tells
+you the result. If none of it applies, it says the file is clean and it's
+okay to submit. If something does apply, it names that specific thing and
+suggests an immigration attorney look first — not because asking is
+dangerous, but because you should know what's in your own file before
+inviting a look at it. It still writes your request either way; it doesn't
+gatekeep.
+
+What it won't do is hand you a vague "consult an attorney if it's
+complicated." You can't assess that, it reads as a hint that something is
+wrong with you, and it's the single most common reason people draft one of
+these and never send it.
+
+Nothing here is legal advice or a guarantee. The full version, including what
+belongs in a draft and what doesn't, is in `references/is-it-safe.md`.
+
 ## Design rule: one person, one case
 
 This is a tool for an individual constituent with a real problem, and it's deliberately built to resist being anything else.
 
 - One case per run. No batching, no list of addresses, no generated personas.
-- No template-identical mass mail. Every draft is built from your specific facts, in your words where possible.
+- No template-identical mass mail. Every draft is built from your specific facts, in your words where possible — and deliberately varied in structure, not just in filled-in blanks. A companion `casework-voice` skill enforces this: two people with identical situations get letters that differ in shape. A caseworker who recognizes a template stops reading the facts inside it, which is bad for you and worse for the next person.
 - One office at a time. Congressional offices explicitly say duplicate inquiries across multiple offices don't speed a case up, and they can tangle it. Start with your House member; escalate to a senator later if you get nothing.
 
 Astroturfing a congressional office is both ineffective and a bad thing to do. If you want this repo for that, it won't help you.
@@ -47,8 +89,11 @@ Then, roughly:
 ```
 visa-casework/
   .claude-plugin/plugin.json
+  commands/
+    visa-casework.md
   skills/
-    visa-casework/SKILL.md      # the interview and the flow
+    visa-casework/SKILL.md      # onboarding, the interview, the flow
+    casework-voice/SKILL.md     # voice + anti-template rules for drafting
   templates/
     casework-request.md         # the main written request
     phone-script.md             # district office call, ~30 seconds
@@ -56,11 +101,13 @@ visa-casework/
     senator-escalation.md       # after the House office goes quiet
     expedite-note.md            # if your facts support an expedite ask
   references/
+    intake.md                   # what to ask, and how to ask it
+    is-it-safe.md               # the risk question, answered honestly
     framing.md                  # why hardship framing beats a visa request
     what-offices-can-do.md      # the real scope of casework
+    the-form.md                 # how the House casework form behaves
     privacy-act.md              # the release you'll sign, in plain words
-  commands/
-    visa-casework.md
+    browser-mcp-setup.md        # optional browser automation
 ```
 
 ## Install
