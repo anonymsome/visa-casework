@@ -6,9 +6,11 @@ If you hold a nonimmigrant status (H-1B, L-1, F-1, O-1, TN, J-1, and others) and
 
 This plugin walks you through it: find your district, pick the right office, assemble the facts, draft the request in the framing caseworkers actually respond to, fill the form, call the district office, and track the follow-up.
 
-**Status: early.** The skill, templates, and references are drafted. The
-process claims in `references/` are largely unverified against current State
-Department and House sources — see Contributing.
+**Status: early but working.** The flow has been run end to end against live
+House casework pages and a real filing. Appointment-availability claims were
+verified in September 2026; the broader process claims in `references/`
+(expedite criteria, casework scope) have not been checked against primary
+State Department sources — see Contributing.
 
 ## What it can't do
 
@@ -75,14 +77,47 @@ Astroturfing a congressional office is both ineffective and a bad thing to do. I
 /visa-casework
 ```
 
-Then, roughly:
+Then:
 
-1. **Locate.** You give a ZIP code. The plugin resolves it to a congressional district via the official House lookup, and pulls the member's casework page, federal-agency form URL, and district office phone. ZIP-to-district isn't always one-to-one; when it's ambiguous you get asked for enough address to disambiguate, and nothing more.
-2. **Intake.** A short interview: your status category, where you'd need to interview, how long you've been unable to travel, what's waiting on the other side (family, a funeral, a sick parent, a wedding you've now missed twice), what you've already tried. It asks for the concrete thing, because the concrete thing is what moves.
-3. **Draft.** Builds the casework request. The framing is fixed and it matters: you're not asking anyone to approve a visa. You're a constituent lawfully working, studying, or living in the U.S. who is functionally unable to leave and return because appointments don't exist. That's a hardship an office can inquire about. "Please approve my visa" is a request they have to decline.
-4. **File.** With [Browser MCP](https://browsermcp.io/) connected, it opens the member's federal-agency assistance form and fills the fields from your intake. You review every field and submit yourself.
-5. **Call.** Generates a 30-second phone script for the district office, to use a day or two after you submit. Referencing a submitted case by name gets you further than a cold call.
-6. **Follow up.** Writes a local tracking file with dates, who you talked to, and what they said. Prompts you at the two-week mark about whether to escalate to a senator.
+0. **Onboarding.** What the tool is, and the honest ceiling: a congressional
+   office can open an inquiry, not issue a visa. It also raises the question
+   most people carry silently — whether reaching out puts their status at
+   risk — rather than waiting for you to ask.
+1. **Locate.** You give a ZIP code. The plugin resolves it to a congressional
+   district via the official House lookup. ZIP-to-district isn't always
+   one-to-one; when it's ambiguous you get asked for enough address to
+   disambiguate, and nothing more.
+2. **Read the form, build a checklist.** Before asking you anything, it goes
+   and reads your member's actual casework form and writes down what that
+   office requires. Offices differ more than you'd expect — some use the
+   House-wide system, some run their own, the fields vary, and some gate on
+   address verification before showing you anything. You get a checklist up
+   front so you know what to have in front of you.
+3. **Intake.** An interview driven by that checklist plus what the letter
+   needs — not a fixed questionnaire. A few questions at a time, and "I don't
+   know" is a complete answer. It asks for the concrete thing, because the
+   concrete thing is what moves.
+4. **Draft.** Builds the request in your own words and in a structure chosen
+   for your situation. The framing is fixed and it matters: you're not asking
+   anyone to approve a visa. You're a constituent lawfully working, studying,
+   or living in the U.S. who can't leave and return because appointments
+   don't exist. That's something an office can inquire about. "Please approve
+   my visa" is a request they have to decline.
+5. **Concern check.** Before anything is filed, it checks your situation
+   against a concrete list of things that would genuinely warrant a lawyer
+   first, and tells you the result either way. Most people get told their
+   file is clean and it's okay to submit.
+6. **File.** With [Browser MCP](https://browsermcp.io/) connected, it opens
+   the form and fills the factual fields. You enter your own identifiers,
+   solve the captcha, and submit. It stops before the submit button, every
+   time.
+7. **Call.** A 30-second script for the district office, to use a day or two
+   after you submit. Referencing a submitted case by name gets you further
+   than a cold call.
+8. **Follow up.** A local tracking file with dates, who you talked to, and
+   what they said. Note that for many offices submitting the form isn't the
+   end — staff contact you, and the inquiry only starts once you sign the
+   release they send. The plugin tells you which pattern your office uses.
 
 ## Layout
 
@@ -103,11 +138,13 @@ visa-casework/
   references/
     intake.md                   # what to ask, and how to ask it
     is-it-safe.md               # the risk question, answered honestly
+    the-form.md                 # how House casework forms actually behave
     framing.md                  # why hardship framing beats a visa request
     what-offices-can-do.md      # the real scope of casework
     the-form.md                 # how the House casework form behaves
     privacy-act.md              # the release you'll sign, in plain words
     browser-mcp-setup.md        # optional browser automation
+  output/                       # your drafts — gitignored, never committed
 ```
 
 ## Install
