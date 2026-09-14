@@ -49,17 +49,38 @@ rather than a shortcut around one.
 
 The published remedies are unreachable by their own design:
 
-- **Expedite requires an existing appointment to expedite.** An applicant
-  with no booked appointment has nothing to apply the expedite to. The
-  remedy the State Department publishes for urgent cases is structurally
-  unavailable to exactly the people with no slots.
+- **Expedite requires an existing appointment to expedite.** This is not an
+  inference — it is State's own published rule. From the U.S. Mission to
+  India's visa page (verified 2026-09-14):
+
+  > "You must already have a confirmed interview appointment date in order
+  > to request an expedited appointment."
+
+  An applicant with no booked appointment has nothing to apply an expedite
+  to. The remedy published for urgent cases is structurally unavailable to
+  exactly the people with no slots. Quote it in the letter; a caseworker can
+  check it in thirty seconds.
+
+  The same page adds that "expedited appointment slots are very limited" and
+  that the post "cannot accommodate all travelers prior to their planned
+  travel dates, even if the purpose of travel is time sensitive." Useful for
+  setting the user's expectations honestly.
 - **Rescheduling is rationed.** Accounts are limited in how many times they
   may reschedule, so an applicant holding a distant appointment cannot
   safely gamble it against a possible earlier one — losing the reschedule
   budget can leave them with nothing.
-- **Third-country processing was closed.** As of roughly September 2025,
-  applicants must apply in their country of nationality or residence, which
-  removed the historical pressure valve and concentrated demand.
+- **Third-country processing was closed.** Per the U.S. Mission to India
+  (verified 2026-09-14): "Applicants for U.S. nonimmigrant visas should
+  schedule their visa interview appointments at the U.S. Embassy or
+  Consulate in their country of residence or nationality." This removed the
+  historical pressure valve and concentrated demand on home-country posts.
+
+Where relevant, a fourth element compounds these: expanded social-media
+vetting. The Mission India page lists H-1B, H-4, F, M, J and other categories
+whose applicants must set social media accounts to public "to facilitate
+vetting." Posts have reduced daily interview volume to accommodate it, which
+is the mechanism behind the shrinking supply — worth one clause, not a
+paragraph, and never as a complaint.
 
 Stated together: *there is no step I can take myself.* That is precisely the
 situation casework exists for, and it distinguishes the request from someone

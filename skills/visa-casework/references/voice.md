@@ -1,11 +1,7 @@
----
-name: casework-voice
-description: Voice and anti-template rules for drafting congressional casework correspondence. Use when writing or revising any letter, email, phone script, or form text in the visa-casework flow. Keeps drafts in the constituent's own voice, and keeps every letter structurally distinct so a caseworker never sees the same letter twice.
----
+# Voice and anti-template rules
 
-# casework-voice
-
-Companion to `visa-casework`. Governs how the drafts sound.
+Governs how the drafts sound. Read before writing or revising any letter,
+email, phone script, or form text.
 
 A casework request is not a legal brief and not a form letter. It is one
 person explaining a problem to another person whose job is to help. It

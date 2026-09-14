@@ -66,7 +66,7 @@ belongs in a draft and what doesn't, is in `references/is-it-safe.md`.
 This is a tool for an individual constituent with a real problem, and it's deliberately built to resist being anything else.
 
 - One case per run. No batching, no list of addresses, no generated personas.
-- No template-identical mass mail. Every draft is built from your specific facts, in your words where possible — and deliberately varied in structure, not just in filled-in blanks. A companion `casework-voice` skill enforces this: two people with identical situations get letters that differ in shape. A caseworker who recognizes a template stops reading the facts inside it, which is bad for you and worse for the next person.
+- No template-identical mass mail. Every draft is built from your specific facts, in your words where possible — and deliberately varied in structure, not just in filled-in blanks. `references/voice.md` enforces this: two people with identical situations get letters that differ in shape. A caseworker who recognizes a template stops reading the facts inside it, which is bad for you and worse for the next person.
 - One office at a time. Congressional offices explicitly say duplicate inquiries across multiple offices don't speed a case up, and they can tangle it. Start with your House member; escalate to a senator later if you get nothing.
 
 Astroturfing a congressional office is both ineffective and a bad thing to do. If you want this repo for that, it won't help you.
@@ -123,38 +123,77 @@ Then:
 
 ```
 visa-casework/
-  .claude-plugin/plugin.json
+  .claude-plugin/
+    plugin.json
+    marketplace.json
   skills/
-    visa-casework/SKILL.md      # onboarding, the interview, the flow
-    casework-voice/SKILL.md     # voice + anti-template rules for drafting
-  templates/
-    casework-request.md         # the main written request
-    phone-script.md             # district office call, ~30 seconds
-    followup-email.md           # nudge when nothing comes back
-    senator-escalation.md       # after the House office goes quiet
-    expedite-note.md            # if your facts support an expedite ask
-  references/
-    intake.md                   # what to ask, and how to ask it
-    is-it-safe.md               # the risk question, answered honestly
-    the-form.md                 # how House casework forms actually behave
-    framing.md                  # why hardship framing beats a visa request
-    what-offices-can-do.md      # the real scope of casework
-    the-form.md                 # how the House casework form behaves
-    privacy-act.md              # the release you'll sign, in plain words
-    browser-mcp-setup.md        # optional browser automation
+    visa-casework/
+      SKILL.md                    # onboarding, the interview, the flow
+      references/
+        intake.md                 # what to ask, and how to ask it
+        is-it-safe.md             # the risk question, answered honestly
+        framing.md                # why hardship framing beats a visa request
+        what-offices-can-do.md    # the real scope of casework
+        the-form.md               # how House casework forms actually behave
+        privacy-act.md            # the release you'll sign, in plain words
+        voice.md                  # voice + anti-template rules for drafting
+        browser-mcp-setup.md      # optional browser automation
+      templates/
+        casework-request.md       # the main written request
+        phone-script.md           # district office call, ~30 seconds
+        followup-email.md         # nudge when nothing comes back
+        senator-escalation.md     # after the House office goes quiet
+        expedite-note.md          # if your facts support an expedite ask
+      scripts/
+        check-draft.sh            # scan a draft for identifiers
 ```
 
-Your drafts are written to `output/` in whatever directory you run this
-from — never inside the plugin itself.
+One skill, everything under it. Your drafts are written to `output/` in
+whatever directory you run this from — never inside the plugin. If that
+directory is a git repository, add `output/` to its `.gitignore` before you
+start:
+
+```
+echo 'output/' >> .gitignore
+```
+
 
 ## Install
 
-Not published yet. Once it is:
+Verified 2026-09-14 against Claude Code's plugin CLI.
+
+In Claude Code:
 
 ```
-/plugin marketplace add <this-repo>
+/plugin marketplace add anonymsome/visa-casework
 /plugin install visa-casework
 ```
+
+Or from a terminal:
+
+```
+claude plugin marketplace add anonymsome/visa-casework
+claude plugin install visa-casework
+```
+
+Both steps are needed. The first registers this repo as a marketplace; the
+second installs the plugin from it. `claude plugin install` alone will not
+find it.
+
+To install from a local clone instead, point the marketplace at the path:
+
+```
+claude plugin marketplace add ./path/to/visa-casework
+claude plugin install visa-casework
+```
+
+Check it landed with `claude plugin list`, or `claude plugin details
+visa-casework@visa-casework` for the component inventory. It should report
+two skills: `visa-casework` and `references/voice.md`.
+
+To remove: `claude plugin uninstall visa-casework@visa-casework`, and
+`claude plugin marketplace remove visa-casework` if you also want the
+marketplace entry gone.
 
 ### Browser MCP
 

@@ -242,18 +242,46 @@ If the user's working directory is the plugin repo itself, say so and write
 somewhere else. Never commit these files and never include their contents in
 anything shared off the user's machine.
 
+**If the working directory is a git repository**, tell the user to ignore the
+drafts before writing any, and offer to add the line for them:
+
+```
+echo 'output/' >> .gitignore
+```
+
+Say why in one sentence: the drafts hold their home address, contact details,
+immigration dates and family circumstances, and a repository is the easiest
+place to publish those by accident. Do not assume `.gitignore` is protection
+on its own — it governs git, not file copies, and a local-path plugin install
+ignores it entirely.
+
+**Run `scripts/check-draft.sh` on every draft before showing it**, and again
+before anything leaves the machine:
+
+```
+scripts/check-draft.sh output/casework-request.md
+```
+
+It greps for A-numbers, SSNs, USCIS receipt numbers, I-94 numbers and
+DOB-shaped dates, and exits non-zero on a hit. Use it rather than eyeballing
+the draft — an identifier reaches a draft by being pasted in bulk, which is
+exactly when a human reviewer skims. Note that it calls `command grep`
+deliberately: a shell may alias `grep` to a gitignore-aware wrapper that
+silently skips ignored files, which is precisely the wrong behaviour when
+checking for a leak.
+
 Non-negotiable framing, per `references/framing.md`: the ask is that the
 office open an inquiry with the Department of State about appointment
 availability and, where the facts support it, that an expedite be
 *considered*. The ask is never that anyone approve, issue, or direct the
 issuance of a visa. A request phrased that way has to be declined.
 
-**Apply the `casework-voice` skill to every draft.** It governs how these
+**Apply `references/voice.md` to every draft.** It governs how these
 read: the user's own phrasing rather than upgraded register, a structure
 chosen for this person rather than a fixed paragraph order, emotional facts
 stated once and plainly, and the AI tells stripped.
 
-That skill is also what keeps this from being a spam engine. Two users with
+That reference is also what keeps this from being a spam engine. Two users with
 identical situations must get letters that differ in shape, not just in slot
 values — a caseworker who recognizes the template stops reading the facts
 inside it. `templates/casework-request.md` is a coverage checklist, not a

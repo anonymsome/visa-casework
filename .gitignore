@@ -1,7 +1,0 @@
-# Drafts contain a real person's address, contact details, immigration
-# dates, and family circumstances. They are written into the USER's working
-# directory at runtime, never into this repository.
-#
-# Note: .gitignore does not protect a local-path plugin install, which copies
-# the directory wholesale. Never leave drafts inside the plugin dir at all.
-output/

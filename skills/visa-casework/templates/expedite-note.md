@@ -7,6 +7,23 @@ toward "no." If the facts do not support one, say so directly to the user
 and file the inquiry alone — that is the stronger filing, not the
 consolation one.
 
+## Prerequisite: an appointment must already exist
+
+Before anything else, check this. State's published rule, verified
+2026-09-14 on the U.S. Mission to India's visa page:
+
+> "You must already have a confirmed interview appointment date in order to
+> request an expedited appointment."
+
+**If the user has no appointment, there is no expedite to request**, and this
+template does not apply. Do not attach it, and do not let the user spend
+effort on a request the system will not accept. Say so plainly — and note
+that the inability to even ask is itself the strongest line in the main
+request. See `references/framing.md`.
+
+Also tell them not to cancel an existing appointment while an expedite
+request is pending; the same page warns against it explicitly.
+
 ## Criteria, roughly
 
 Posts publish their own criteria and they vary, so check the specific post's
