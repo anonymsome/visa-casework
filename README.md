@@ -124,8 +124,6 @@ Then:
 ```
 visa-casework/
   .claude-plugin/plugin.json
-  commands/
-    visa-casework.md
   skills/
     visa-casework/SKILL.md      # onboarding, the interview, the flow
     casework-voice/SKILL.md     # voice + anti-template rules for drafting
@@ -144,8 +142,10 @@ visa-casework/
     the-form.md                 # how the House casework form behaves
     privacy-act.md              # the release you'll sign, in plain words
     browser-mcp-setup.md        # optional browser automation
-  output/                       # your drafts — gitignored, never committed
 ```
+
+Your drafts are written to `output/` in whatever directory you run this
+from — never inside the plugin itself.
 
 ## Install
 

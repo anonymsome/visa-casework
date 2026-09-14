@@ -1,0 +1,14 @@
+{
+  "name": "visa-casework",
+  "owner": {
+    "name": "anonymsome"
+  },
+  "plugins": [
+    {
+      "name": "visa-casework",
+      "source": "./",
+      "description": "Draft and file one congressional casework request about U.S. nonimmigrant visa appointment unavailability."
+    }
+  ],
+  "description": "Tools for individual constituents filing congressional casework about visa appointment unavailability."
+}

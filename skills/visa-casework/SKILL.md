@@ -226,16 +226,21 @@ them that rather than steering them toward a sadder story.
 
 Build the request from `templates/casework-request.md`.
 
-**Write drafts to `output/` in the working directory**, one file per
-artifact: `output/casework-request.md`, `output/phone-script.md`,
+**Write drafts to `output/` in the user's current working directory** — one
+file per artifact: `output/casework-request.md`, `output/phone-script.md`,
 `output/followup.md`, `output/tracking.md`. The user reviews and edits the
 file; you work from the same file rather than from a copy in the
 conversation, so their edits are never silently discarded.
 
-`output/` is gitignored and must stay that way. These files contain a real
+**Never write drafts inside the plugin's own directory.** Drafts hold a real
 person's home address, contact details, immigration dates, and family
-circumstances. Never commit them, never publish them, and never include
-their contents in anything shared outside the user's machine.
+circumstances. A local-path plugin install copies the plugin directory
+wholesale — `.gitignore` does not apply — so anything left there travels into
+the plugin cache and into any copy of the plugin that gets shared.
+
+If the user's working directory is the plugin repo itself, say so and write
+somewhere else. Never commit these files and never include their contents in
+anything shared off the user's machine.
 
 Non-negotiable framing, per `references/framing.md`: the ask is that the
 office open an inquiry with the Department of State about appointment
