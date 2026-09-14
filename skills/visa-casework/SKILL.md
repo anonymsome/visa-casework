@@ -9,6 +9,18 @@ Help one constituent file one casework request with their U.S. Representative
 about being unable to obtain a consular appointment to renew a nonimmigrant
 visa.
 
+**What this achieves, stated honestly:** the user gets heard by a named
+caseworker, gets a real answer instead of a portal showing `NA`, and gets
+counted in what that office is hearing from its district. It does not produce
+an appointment, and nothing you write should imply it might. A user who
+finishes this expecting a visa has been misinformed, however good the letter
+was. Set that expectation in Step 0 and hold it through Step 6.
+
+**Read `references/limitations.md` first.** It records which claims in this
+skill were verified against primary sources and which were not, what the
+agent cannot know, and what the user must confirm themselves. Do not state an
+unverified claim as fact, and do not put one in a letter.
+
 Read `references/framing.md` before drafting anything. The framing is the
 part that determines whether the request gets worked or declined, and it is
 not intuitive.
@@ -361,6 +373,13 @@ and the case number.
 
 Write a local tracking file: submission date, case number, contacts, what
 was said. Keep it in the working directory.
+
+**Restate what a good outcome looks like** when you hand over the tracking
+file, because this is where expectations quietly drift. A reply saying "no
+availability and no timeline" is not a failure — it is the answer, from a
+person, which is what the inquiry was for. The case being logged and counted
+is the other half. Say so before the user reads a non-answer as a wasted
+effort.
 
 Generate `templates/followup-email.md` for the two-week mark. If the House
 office has gone quiet past that point, offer

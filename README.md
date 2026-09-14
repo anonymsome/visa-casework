@@ -6,6 +6,12 @@ If you hold a nonimmigrant status (H-1B, L-1, F-1, O-1, TN, J-1, and others) and
 
 This plugin walks you through it: find your district, pick the right office, assemble the facts, draft the request in the framing caseworkers actually respond to, fill the form, call the district office, and track the follow-up.
 
+**What's verified and what isn't** is tracked in
+`skills/visa-casework/references/limitations.md`, with sources and dates. Some
+claims here were checked against State Department pages; others are general
+knowledge that has not been confirmed. Consular policy changes often — check
+anything load-bearing the week you send it.
+
 **Status: early but working.** The flow has been run end to end against live
 House casework pages and a real filing. Appointment-availability claims were
 verified in September 2026; the broader process claims in `references/`
@@ -17,7 +23,11 @@ State Department sources — see Contributing.
 Read this part before anything else.
 
 - **It is not legal advice.** It's a drafting and process tool. For anything touching your status, your travel plans, or your employer's filings, talk to an immigration attorney.
-- **A congressional office cannot issue you a visa, order a consulate to do anything, or create an appointment.** What it can do is open an inquiry with the State Department, ask for an expedite to be considered, and get you an actual answer instead of a portal that never loads. That's worth real money and it's the honest ceiling.
+- **A congressional office cannot issue you a visa, order a consulate to do anything, or create an appointment.** What it can do is open an inquiry with the State Department, ask for an expedite to be considered, and get you an actual answer instead of a portal that never loads.
+
+  So be clear about what winning looks like here. **You get heard** — a named caseworker knows your situation exists. **You get an answer**, often just "no availability, no timeline," but from a human, in writing. **You get counted** — offices track what their district contacts them about, and volume is how an issue reaches the people who set policy. That's the honest ceiling, and it's worth the hour.
+
+  If you're doing this expecting an appointment, don't. Nothing here produces one.
 - **It won't submit anything for you.** The browser step stops at a filled form. You read it, you fix it, you click submit. Congressional casework forms require a signed Privacy Act authorization — that's your signature, not an agent's.
 - **It won't invent hardship.** Every fact in the draft comes from you. If you haven't been separated from family for two years, the draft won't say you have. Caseworkers read a lot of these and a fabricated one burns your credibility and everyone else's.
 
@@ -136,6 +146,7 @@ visa-casework/
         what-offices-can-do.md    # the real scope of casework
         the-form.md               # how House casework forms actually behave
         privacy-act.md            # the release you'll sign, in plain words
+        limitations.md            # what's verified, what isn't, what to check
         voice.md                  # voice + anti-template rules for drafting
         browser-mcp-setup.md      # optional browser automation
       templates/
